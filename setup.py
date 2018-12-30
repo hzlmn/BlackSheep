@@ -39,7 +39,11 @@ setup(name='blacksheep',
           Extension('blacksheep.exceptions',
                     ['blacksheep/exceptions.c'],
                     extra_compile_args=COMPILE_ARGS),
-          
+
+          Extension('blacksheep.routing',
+                    ['blacksheep/routing.c'],
+                    extra_compile_args=COMPILE_ARGS),
+
           Extension('blacksheep.options',
                     ['blacksheep/options.c'],
                     extra_compile_args=COMPILE_ARGS),

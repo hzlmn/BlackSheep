@@ -2,7 +2,7 @@ from .options cimport ServerOptions
 from .messages cimport Request, Response
 from .contents cimport TextContent, HtmlContent
 from .exceptions cimport HttpException, HttpNotFound
-
+from .routing cimport Router, RouteMatch
 
 import html
 import traceback
@@ -10,24 +10,24 @@ import traceback
 
 cdef class BaseApplication:
 
-    def __init__(self, ServerOptions options, object router):
+    def __init__(self, ServerOptions options, Router router):
         self.options = options
         self.router = router
         self.connections = set()
 
     async def handle(self, Request request):
-        cdef object route
+        cdef RouteMatch route_match
         cdef Response response
 
-        route = self.router.get_match(request.method, request.url.path)
+        route_match = self.router.get_match(request.method, request.url.path)
 
-        if not route:
+        if not route_match:
             response = await self.handle_not_found(request)
         else:
-            request.route_values = route.values
+            request.route_values = route_match.values
 
             try:
-                response = await route.handler(request)
+                response = await route_match.handler(request)
             except HttpException as http_exception:
                 response = await self.handle_http_exception(request, http_exception)
             except Exception as exc:

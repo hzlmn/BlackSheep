@@ -1,6 +1,6 @@
 import pytest
 from blacksheep import HttpMethod
-from blacksheep.server.routing import Router, Route, RouteDuplicate
+from blacksheep.routing import Router, Route, RouteDuplicate
 
 
 FAKE = b'FAKE'

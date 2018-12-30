@@ -11,7 +11,7 @@ from datetime import datetime
 from email.utils import formatdate
 from blacksheep import Request, Response, TextContent, HtmlContent
 from blacksheep.options import ServerOptions
-from blacksheep.server.routing import Router
+from blacksheep.routing import Router
 from blacksheep.server.logs import setup_sync_logging
 from blacksheep.server.files.dynamic import serve_files
 from blacksheep.server.files.static import serve_static_files

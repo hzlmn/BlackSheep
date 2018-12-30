@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from urllib.parse import quote
 from blacksheep import Response, Content, Header, Headers
-from blacksheep.server.routing import Route
+from blacksheep.routing import Route
 from blacksheep.exceptions import InvalidArgument
 from blacksheep.server.pathsutils import get_file_extension_from_name
 from . import get_default_extensions, get_response_for_file, get_mime_type, unix_timestamp_to_datetime, get_file_data

@@ -2,7 +2,7 @@ import os
 import html
 from pathlib import Path
 from blacksheep.exceptions import InvalidArgument
-from blacksheep.server.routing import Route
+from blacksheep.routing import Route
 from blacksheep import Response, HtmlContent
 from blacksheep.server.pathsutils import get_file_extension_from_name
 from blacksheep.server.resources import get_resource_file_content

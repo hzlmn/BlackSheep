@@ -2,6 +2,7 @@
 
 
 cyt:
+	cythonize -i blacksheep/routing.pyx
 	cythonize -i blacksheep/url.pyx
 	cythonize -i blacksheep/exceptions.pyx
 	cythonize -i blacksheep/headers.pyx
@@ -28,6 +29,7 @@ buildext:
 
 
 annotate:
+	cython blacksheep/routing.pyx -a
 	cython blacksheep/url.pyx -a
 	cython blacksheep/exceptions.pyx -a
 	cython blacksheep/headers.pyx -a
